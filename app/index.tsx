@@ -1,13 +1,17 @@
+import { Login } from '@/src/components/Auth/Login/Login';
 import { Homepage } from '@/src/components/Homepage/Homepage';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Signup } from '@/src/components/Auth/Signup/Signup';
+import { I18nManager, Text, TouchableOpacity, View } from 'react-native';
+
+I18nManager.forceRTL(true);
+I18nManager.allowRTL(true);
 
 export default function Index() {
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        padding: 15,
         backgroundColor: '#ffffff',
       }}
     >
