@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useRouter } from 'expo-router';
 
 import LOGO from '@/assets/images/bishvila-logo.png';
 import { hebrewTranslations } from '@/translation/lang-heb';
@@ -7,8 +8,12 @@ import { hebrewTranslations } from '@/translation/lang-heb';
 interface HomepageProps {}
 
 export const Homepage: FunctionComponent<HomepageProps> = () => {
+  const router = useRouter();
+
+  // const handleNavigationClick = (routeName: string) => router.push({ pathname: `/${routeName}` });
+
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.container}>
         <View style={styles.logoContainer}>
           <Image source={LOGO} width={120} height={120} />
@@ -30,6 +35,9 @@ export const Homepage: FunctionComponent<HomepageProps> = () => {
 };
 
 const styles = StyleSheet.create({
+  safeAreaContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
   },
