@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, TextInput, TouchableOpacity, View, Text, Animated } from 'react-native';
-import { Formik } from 'formik';
-import * as Yup from 'yup';
 import Constants from 'expo-constants';
+import { useRouter } from 'expo-router';
+import { Formik } from 'formik';
+import React from 'react';
+import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import * as Yup from 'yup';
 
 import { hebrewTranslations } from '@/src/translation/lang-heb';
-import { Autocomplete } from '../../Autocomplete/Autocomplete';
-import { ThemedView } from '../../ThemedView';
-import { ThemedText } from '../../ThemedText';
+import { Routes } from '@/src/types/routes';
+
 import { PasswordField } from './PasswordField';
+import { Autocomplete } from '../../Autocomplete/Autocomplete';
+import { ThemedText } from '../../ThemedText';
+import { ThemedView } from '../../ThemedView';
 
 const SignupSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -33,30 +36,19 @@ const SignupSchema = Yup.object().shape({
 });
 
 export const Signup = () => {
-  const [isHidden, setIsHidden] = useState(true);
-  const [fadeAnim] = useState(new Animated.Value(1));
+  const router = useRouter();
 
-  const toggleVisibility = () => {
-    Animated.timing(fadeAnim, {
-      toValue: 0,
-      duration: 250,
-      useNativeDriver: true,
-    }).start(() => {
-      setIsHidden(!isHidden);
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 250,
-        useNativeDriver: true,
-      }).start();
-    });
-  };
+  const handleSignupSubmit = () => router.replace(Routes.Homepage);
 
   return (
     <SafeAreaView style={styles.container}>
       <Formik
         validationSchema={SignupSchema}
         initialValues={{ fullName: '', email: '', password: '', phoneNumber: '', deliveryAddress: '' }}
-        onSubmit={(values) => console.log('values ->', values)}
+        onSubmit={(values) => {
+          handleSignupSubmit();
+          console.log('values ->', values);
+        }}
       >
         {({ handleChange, handleBlur, handleSubmit, setFieldValue, values, errors, touched }) => (
           <ThemedView style={styles.formContainer}>

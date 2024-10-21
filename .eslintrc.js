@@ -12,6 +12,7 @@ module.exports = {
     'plugin:import/typescript',
     '@react-native-community',
     'plugin:prettier/recommended',
+    'prettier',
     'expo',
   ],
   parser: '@typescript-eslint/parser',
@@ -49,6 +50,10 @@ module.exports = {
     'no-lonely-if': 'error',
     eqeqeq: ['error', 'always'],
     'react-refresh/only-export-components': 'warn',
+    /**
+     * @deprecated here because it's cause unneeded error
+     */
+    '@typescript-eslint/ban-types': 'off',
     'prefer-destructuring': [
       'warn',
       {

@@ -1,14 +1,12 @@
-import { FunctionComponent } from 'react';
-import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useRouter } from 'expo-router';
+import React, { FunctionComponent } from 'react';
+import { Image, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import LOGO from '@/assets/images/bishvila-logo.png';
-import { hebrewTranslations } from '@/translation/lang-heb';
 import { Routes } from '@/src/types/routes';
+import { hebrewTranslations } from '@/translation/lang-heb';
 
-interface HomepageProps {}
-
-export const Homepage: FunctionComponent<HomepageProps> = () => {
+export const Welcome: FunctionComponent = () => {
   const router = useRouter();
 
   const handleNavigationClick = (routeName: Routes) => router.push({ pathname: `./${routeName}` });
@@ -21,16 +19,16 @@ export const Homepage: FunctionComponent<HomepageProps> = () => {
         </View>
         <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button} onPress={() => handleNavigationClick(Routes.Signup)}>
-            <Text style={styles.buttonText}>{hebrewTranslations.homepage.createAnAccount}</Text>
+            <Text style={styles.buttonText}>{hebrewTranslations.welcome.createAnAccount}</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.button, styles.lightBackground]}
             onPress={() => handleNavigationClick(Routes.Login)}
           >
-            <Text style={styles.buttonText}>{hebrewTranslations.homepage.login}</Text>
+            <Text style={styles.buttonText}>{hebrewTranslations.welcome.login}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.button, styles.lightBackground]}>
-            <Text style={styles.buttonText}>{hebrewTranslations.homepage.punchesGift}</Text>
+            <Text style={styles.buttonText}>{hebrewTranslations.welcome.punchesGift}</Text>
           </TouchableOpacity>
         </View>
       </View>
