@@ -1,17 +1,22 @@
-import { Login } from '@/src/components/Auth/Login/Login';
 import React from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+
+import { Login } from '@/src/components/Auth/Login/Login';
+import { useThemeColor } from '@/src/hooks/useThemeColor';
 
 export default function LoginScreen() {
+  const backgroundColor = useThemeColor({}, 'background');
+
   return (
-    <SafeAreaView
-      style={{
-        flex: 1,
-        padding: 15,
-        backgroundColor: '#ffffff',
-      }}
-    >
+    <SafeAreaView style={[styles.container, { backgroundColor }]}>
       <Login />
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 15,
+  },
+});
