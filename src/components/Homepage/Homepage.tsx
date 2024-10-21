@@ -4,13 +4,14 @@ import { useRouter } from 'expo-router';
 
 import LOGO from '@/assets/images/bishvila-logo.png';
 import { hebrewTranslations } from '@/translation/lang-heb';
+import { Routes } from '@/src/types/routes';
 
 interface HomepageProps {}
 
 export const Homepage: FunctionComponent<HomepageProps> = () => {
   const router = useRouter();
 
-  // const handleNavigationClick = (routeName: string) => router.push({ pathname: `/${routeName}` });
+  const handleNavigationClick = (routeName: Routes) => router.push({ pathname: `./${routeName}` });
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
@@ -19,10 +20,13 @@ export const Homepage: FunctionComponent<HomepageProps> = () => {
           <Image source={LOGO} width={120} height={120} />
         </View>
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button} onPress={() => handleNavigationClick(Routes.Signup)}>
             <Text style={styles.buttonText}>{hebrewTranslations.homepage.createAnAccount}</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.lightBackground]}>
+          <TouchableOpacity
+            style={[styles.button, styles.lightBackground]}
+            onPress={() => handleNavigationClick(Routes.Login)}
+          >
             <Text style={styles.buttonText}>{hebrewTranslations.homepage.login}</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[styles.button, styles.lightBackground]}>
