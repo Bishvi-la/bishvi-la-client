@@ -28,13 +28,24 @@ export default {
       output: 'static',
       favicon: './assets/images/favicon.png',
     },
-    plugins: ['expo-router'],
+    plugins: [
+      'expo-router',
+      [
+        '@sentry/react-native/expo',
+        {
+          url: 'https://sentry.io/',
+          project: 'bishvi-la-client',
+          organization: 'idan-levian',
+        },
+      ],
+    ],
     experiments: {
       typedRoutes: true,
     },
     extra: {
-      geoapifyApiKey: process.env.GEOAPIFY_API_KEY,
-      idan: 'dora',
+      GEOAPIFY_API_KEY: process.env.GEOAPIFY_API_KEY,
+      SENTRY_DSN: process.env.SENTRY_DSN,
+      SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
     },
   },
 };

@@ -116,7 +116,7 @@ export const Signup = () => {
             <ThemedView style={styles.fieldWrapper}>
               <ThemedText style={styles.label}>{hebrewTranslations.signup.deliveryAddress}</ThemedText>
               <Autocomplete
-                apiKey={Constants.manifest2.extra.expoClient.extra.geoapifyApiKey}
+                apiKey={Constants.manifest2.extra.expoClient.extra.GEOAPIFY_API_KEY}
                 placeholder={hebrewTranslations.signup.placeholders.deliveryAddress}
                 onSelect={(address) => setFieldValue('deliveryAddress', address)}
                 field="deliveryAddress"
