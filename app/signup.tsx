@@ -1,18 +1,15 @@
-import { I18nManager, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
-import { Homepage } from '@/src/components/Homepage/Homepage';
+import { Signup } from '@/src/components/Auth/Signup/Signup';
 import { useThemeColor } from '@/src/hooks/useThemeColor';
 
-I18nManager.forceRTL(true);
-I18nManager.allowRTL(true);
-
-export default function Index() {
+export default function SignupScreen() {
   const backgroundColor = useThemeColor({}, 'background');
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }]}>
-      <Homepage />
+      <Signup />
     </SafeAreaView>
   );
 }
