@@ -1,5 +1,5 @@
 export const hebrewTranslations = {
-  homepage: {
+  welcome: {
     createAnAccount: 'צרי חשבון',
     login: 'התחברי',
     punchesGift: 'רכשו מתנה',
@@ -45,5 +45,11 @@ export const hebrewTranslations = {
       require: 'שדה חובה',
     },
     login: 'התחברי',
+  },
+  main: {
+    homepage: {
+      startCreatingNewList: 'התחילי ליצור רשימה',
+      Welcome: 'ברוכה הבאה,',
+    },
   },
 };

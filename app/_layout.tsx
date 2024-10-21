@@ -1,12 +1,12 @@
 import { Stack } from 'expo-router';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
 import { StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Routes } from '@/src/types/routes';
-import { useThemeColor } from '@/src/hooks/useThemeColor';
 import BackButton from '@/src/components/BackButton/BackButton';
-import { withSentry } from '@/src/providers/SentryProvider';
 import { ErrorBoundary } from '@/src/ErrorBoundary/ErrorBoundary';
+import { useThemeColor } from '@/src/hooks/useThemeColor';
+import { withSentry } from '@/src/providers/SentryProvider';
 
 function RootLayout() {
   const backgroundColor = useThemeColor({}, 'background');
@@ -24,9 +24,14 @@ function RootLayout() {
             title: '',
           }}
         >
-          <Stack.Screen name={Routes.Homepage} options={{ headerShown: false }} />
-          <Stack.Screen name={Routes.Signup} />
-          <Stack.Screen name={Routes.Login} />
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+
+          {/* Auth Screens */}
+          <Stack.Screen name="auth/signup" />
+          <Stack.Screen name="auth/login" />
+
+          {/* Main Screens */}
+          <Stack.Screen name="main/homepage" options={{ headerShown: false }} />
         </Stack>
       </SafeAreaView>
     </ErrorBoundary>

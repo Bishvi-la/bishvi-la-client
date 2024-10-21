@@ -1,5 +1,10 @@
 export enum Routes {
-  Homepage = 'index',
-  Login = 'login',
-  Signup = 'signup',
+  Welcome = 'index',
+
+  // Auth screens
+  Login = '/auth/login',
+  Signup = '/auth/signup',
+
+  // Main screens
+  Homepage = '/main/homepage',
 }
