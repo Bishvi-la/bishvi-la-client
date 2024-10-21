@@ -13,12 +13,24 @@
     "jsx": "react-native",
     "lib": ["ES6", "ES2017"],
     "target": "ES5",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
       "@/components/*": ["./src/components/*"],
       "@/translation/*": ["./src/translation/*"],
-      "@/assets/*": ["./assets/*"]
+      "@/assets/*": ["./assets/*"],
+      "@/app/*": ["./app/*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts", "./declarations/*.d.ts", "./assets/*"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "./declarations/*.d.ts",
+    "./assets/*",
+    "./app/*",
+    "./src/*"
+  ],
+  "exclude": ["./dist", "./node_modules"]
 }
