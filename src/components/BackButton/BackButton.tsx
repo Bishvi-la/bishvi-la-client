@@ -1,8 +1,9 @@
-// BackButton.tsx
-import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+
+import { Button } from '@/components/core';
 
 const BackButton: React.FC = () => {
   const router = useRouter();
@@ -16,24 +17,18 @@ const BackButton: React.FC = () => {
   };
 
   return (
-    <TouchableOpacity style={styles.button} onPress={handlePress}>
-      <AntDesign name="arrowleft" size={20} color="#fff" style={styles.icon} />
-      <Text style={styles.buttonText}>חזור</Text>
-    </TouchableOpacity>
+    <Button
+      title="חזור"
+      onPress={handlePress}
+      leftIcon={<AntDesign name="arrowleft" size={20} color="#fff" style={styles.icon} />}
+      textStyle={styles.buttonText}
+    />
   );
 };
 
 export default BackButton;
 
 const styles = StyleSheet.create({
-  button: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 10,
-    // backgroundColor: '#94D1D6',
-    borderRadius: 8,
-    alignSelf: 'flex-start',
-  },
   icon: {
     marginRight: 5,
     color: '#000000',

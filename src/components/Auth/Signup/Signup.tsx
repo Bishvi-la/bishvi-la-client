@@ -2,16 +2,15 @@ import Constants from 'expo-constants';
 import { useRouter } from 'expo-router';
 import { Formik } from 'formik';
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 import * as Yup from 'yup';
 
+import { Button, ThemedText, ThemedView } from '@/components/core';
 import { hebrewTranslations } from '@/src/translation/lang-heb';
 import { Routes } from '@/src/types/routes';
 
-import { PasswordField } from './PasswordField';
 import { Autocomplete } from '../../Autocomplete/Autocomplete';
-import { ThemedText } from '../../ThemedText';
-import { ThemedView } from '../../ThemedView';
+import { PasswordField } from '../../PasswordField/PasswordField';
 
 const SignupSchema = Yup.object().shape({
   fullName: Yup.string()
@@ -124,9 +123,13 @@ export const Signup = () => {
               </ThemedView>
             </ThemedView>
 
-            <TouchableOpacity onPress={() => handleSubmit()} style={styles.button}>
-              <ThemedText style={styles.buttonText}>{hebrewTranslations.signup.createAnAccount}</ThemedText>
-            </TouchableOpacity>
+            <Button
+              title={hebrewTranslations.signup.createAnAccount}
+              onPress={() => handleSubmit()}
+              color="primary"
+              size="large"
+              fontSize="large"
+            />
           </ThemedView>
         )}
       </Formik>

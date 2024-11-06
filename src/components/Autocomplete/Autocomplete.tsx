@@ -1,15 +1,8 @@
-import React, { useState, useCallback } from 'react';
-import {
-  TextInput,
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  StyleSheet,
-  ActivityIndicator,
-  TextInputProps,
-} from 'react-native';
 import { debounce } from 'lodash';
+import React, { useCallback, useState } from 'react';
+import { ActivityIndicator, FlatList, StyleSheet, TextInput, TextInputProps, TouchableOpacity } from 'react-native';
+
+import { ThemedText, ThemedView } from '@/components/core';
 
 interface Suggestion {
   properties: {
@@ -79,13 +72,13 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
         setSuggestions([]);
       }}
     >
-      <Text style={styles.suggestionText}>{item.properties.formatted}</Text>
+      <ThemedText style={styles.suggestionText}>{item.properties.formatted}</ThemedText>
     </TouchableOpacity>
   );
 
   return (
-    <View style={styles.fieldWrapper}>
-      <View style={styles.inputContainer}>
+    <ThemedView style={styles.fieldWrapper}>
+      <ThemedView style={styles.inputContainer}>
         <TextInput
           placeholder={placeholder}
           onChangeText={handleAddressChange}
@@ -94,7 +87,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
           onBlur={onBlur}
         />
         {loading && <ActivityIndicator style={styles.loader} size="small" color="#999" />}
-      </View>
+      </ThemedView>
       {suggestions?.length > 0 && (
         <FlatList
           data={suggestions}
@@ -103,7 +96,7 @@ export const Autocomplete: React.FC<AutocompleteProps> = ({
           style={styles.suggestionsContainer}
         />
       )}
-    </View>
+    </ThemedView>
   );
 };
 

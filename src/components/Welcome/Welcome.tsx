@@ -1,10 +1,12 @@
-import LOGO from '@/assets/images/bishvila-logo.png';
-import LandingPage from '@/assets/images/landingBackground.png';
-import { Routes } from '@/src/types/routes';
-import { hebrewTranslations } from '@/translation/lang-heb';
 import { useRouter } from 'expo-router';
 import React, { FunctionComponent } from 'react';
-import { Image, ImageBackground, SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, SafeAreaView, StyleSheet } from 'react-native';
+
+import LOGO from '@/assets/images/bishvila-logo.png';
+import LandingPage from '@/assets/images/landingBackground.png';
+import { Button, ThemedView } from '@/components/core';
+import { Routes } from '@/src/types/routes';
+import { hebrewTranslations } from '@/translation/lang-heb';
 
 export const Welcome: FunctionComponent = () => {
   const router = useRouter();
@@ -13,26 +15,37 @@ export const Welcome: FunctionComponent = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
-      <View style={styles.container}>
-        <View style={styles.logoContainer}>
+      <ThemedView style={styles.container}>
+        <ThemedView style={styles.logoContainer}>
           <ImageBackground source={LandingPage} resizeMode={'stretch'} style={styles.imageBg} />
           <Image source={LOGO} width={120} height={120} style={styles.logoImage} />
-        </View>
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => handleNavigationClick(Routes.Signup)}>
-            <Text style={styles.buttonText}>{hebrewTranslations.welcome.createAnAccount}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.button, styles.lightBackground]}
+        </ThemedView>
+        <ThemedView style={styles.buttonsContainer}>
+          <Button
+            title={hebrewTranslations.welcome.createAnAccount}
+            onPress={() => handleNavigationClick(Routes.Signup)}
+            color="primary"
+            size="large"
+            fontSize="large"
+          />
+          <Button
+            title={hebrewTranslations.welcome.login}
             onPress={() => handleNavigationClick(Routes.Login)}
-          >
-            <Text style={styles.buttonText}>{hebrewTranslations.welcome.login}</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.lightBackground]}>
-            <Text style={styles.buttonText}>{hebrewTranslations.welcome.punchesGift}</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+            color="secondary"
+            size="large"
+            fontSize="medium"
+            textColor={'#000000'}
+          />
+          <Button
+            title={hebrewTranslations.welcome.punchesGift}
+            onPress={() => console.log('Gift button pressed')}
+            color="secondary"
+            size="large"
+            fontSize="medium"
+            textColor={'#000000'}
+          />
+        </ThemedView>
+      </ThemedView>
     </SafeAreaView>
   );
 };
@@ -66,20 +79,5 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     marginTop: 15,
     flexDirection: 'column',
-  },
-  button: {
-    backgroundColor: '#5BABB5',
-    width: '100%',
-    height: 60,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    borderRadius: 50,
-    marginVertical: 20,
-  },
-  lightBackground: {
-    backgroundColor: '#94D1D6',
-  },
-  buttonText: {
-    textAlign: 'center',
   },
 });

@@ -1,8 +1,8 @@
 import React from 'react';
-import { I18nManager, StyleSheet, View } from 'react-native';
+import { I18nManager, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { Welcome } from '@/src/components/Welcome/Welcome';
+import { MyListScreen } from '@/app/myList/myList';
 import { useThemeColor } from '@/src/hooks/useThemeColor';
 
 I18nManager.forceRTL(true);
@@ -13,7 +13,8 @@ export default function Index() {
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }]}>
-      <Welcome />
+      {/*<Welcome />*/}
+      <MyListScreen />
     </SafeAreaView>
   );
 }

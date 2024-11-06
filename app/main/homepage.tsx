@@ -1,13 +1,17 @@
+import { useRouter } from 'expo-router';
 import React from 'react';
 import { Image, SafeAreaView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
-import { ThemedText } from '@/src/components/ThemedText';
-import { ThemedView } from '@/src/components/ThemedView';
+import { ThemedText } from '@/components/core/Text/ThemedText';
+import { ThemedView } from '@/components/core/View/ThemedView';
 import { useThemeColor } from '@/src/hooks/useThemeColor';
 import { hebrewTranslations } from '@/src/translation/lang-heb';
 
 const HomepageScreen = () => {
   const backgroundColor = useThemeColor({}, 'background');
+  const router = useRouter();
+
+  const handleOnPress = () => router.push('/myList/myList');
 
   // TODO: Need to import the username after the user done signup flow.
   // TEMP!!!
@@ -25,7 +29,7 @@ ${userName}!`}
           </ThemedText>
         </View>
       </ThemedView>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleOnPress}>
         <ThemedText style={styles.buttonText} type="title">
           {hebrewTranslations.main.homepage.startCreatingNewList}
         </ThemedText>
