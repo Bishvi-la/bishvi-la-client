@@ -30,6 +30,9 @@ function RootLayout() {
           <Stack.Screen name="auth/signup" />
           <Stack.Screen name="auth/login" />
 
+          {/* My List Screens */}
+          <Stack.Screen name="myList/myList" />
+
           {/* Main Screens */}
           <Stack.Screen name="main/homepage" options={{ headerShown: false }} />
         </Stack>

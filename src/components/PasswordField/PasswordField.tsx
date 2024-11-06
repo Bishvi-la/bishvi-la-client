@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { TextInput, TouchableOpacity, Animated, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useField } from 'formik';
+import React, { useEffect, useState } from 'react';
+import { Animated, StyleSheet, Text, TextInput, TouchableOpacity } from 'react-native';
 
-import { ThemedView } from '../../ThemedView';
+import { ThemedView } from '@/components/core';
 
 interface PasswordFieldProps {
   placeholder: string;
@@ -39,7 +39,7 @@ export const PasswordField: React.FC<PasswordFieldProps> = ({ placeholder }) => 
     }).start();
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     animatePasswordMargin(!!meta.error && meta.touched);
   }, [meta.error, meta.touched]);
 

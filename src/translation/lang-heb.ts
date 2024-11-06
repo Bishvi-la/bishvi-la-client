@@ -52,4 +52,9 @@ export const hebrewTranslations = {
       Welcome: 'ברוכה הבאה,',
     },
   },
+  lists: {
+    createNewList: 'רשימה חדשה',
+    noListMessage: 'עדיין לא יצרת רשימות',
+    subNoListMessage: 'לחצי על הכפור למטלה כדי ליצור את הרשימה הראשונה שלך!',
+  },
 };
