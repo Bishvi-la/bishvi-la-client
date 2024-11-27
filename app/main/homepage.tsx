@@ -6,12 +6,13 @@ import { ThemedText } from '@/components/core/Text/ThemedText';
 import { ThemedView } from '@/components/core/View/ThemedView';
 import { useThemeColor } from '@/src/hooks/useThemeColor';
 import { hebrewTranslations } from '@/src/translation/lang-heb';
+import { Routes } from '@/src/types/routes';
 
 const HomepageScreen = () => {
   const backgroundColor = useThemeColor({}, 'background');
   const router = useRouter();
 
-  const handleOnPress = () => router.push('/myList/myList');
+  const handleOnPress = () => router.push(Routes.MyList);
 
   // TODO: Need to import the username after the user done signup flow.
   // TEMP!!!

@@ -23,7 +23,8 @@ export const Welcome: FunctionComponent = () => {
         <ThemedView style={styles.buttonsContainer}>
           <Button
             title={hebrewTranslations.welcome.createAnAccount}
-            onPress={() => handleNavigationClick(Routes.Signup)}
+            onPress={() => handleNavigationClick(Routes.MyList)}
+            // onPress={() => handleNavigationClick(Routes.Signup)}
             color="primary"
             size="large"
             fontSize="large"

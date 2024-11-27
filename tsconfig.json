@@ -30,6 +30,9 @@
       "@/translation/*": [
         "./src/translation/*"
       ],
+      "@/constants/*": [
+        "./src/constants/*"
+      ],
       "@/assets/*": [
         "./assets/*"
       ],

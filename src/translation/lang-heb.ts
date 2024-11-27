@@ -53,8 +53,33 @@ export const hebrewTranslations = {
     },
   },
   lists: {
+    defaultNewListName: 'רשימה חדשה',
     createNewList: 'רשימה חדשה',
     noListMessage: 'עדיין לא יצרת רשימות',
     subNoListMessage: 'לחצי על הכפור למטלה כדי ליצור את הרשימה הראשונה שלך!',
+    modal: {
+      title: 'תני שם לרשימה',
+      confirm: 'צרי רשימה',
+      cancel: 'ביטול',
+      placeholder: 'רשימה חדשה',
+    },
+    secureBack: {
+      title: 'אישור חזרה',
+      message: 'האם את בטוחה שברצונך לחזור? לא ניתן לשמור את השינויים שנעשו עד כה.',
+      cancel: {
+        title: 'ביטול',
+      },
+      confirm: {
+        title: 'חזרי אחורה',
+      },
+    },
+  },
+  backButton: {
+    label: 'חזרי',
+  },
+  search: {
+    searchListPlaceholder: 'חפשי רשימה...',
+    defaultPlaceholder: 'חפשי...',
+    newListPlaceholder: 'חפשי מוצר או קטגוריה...',
   },
 };

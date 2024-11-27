@@ -6,7 +6,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import BackButton from '@/src/components/BackButton/BackButton';
 import { ErrorBoundary } from '@/src/ErrorBoundary/ErrorBoundary';
 import { useThemeColor } from '@/src/hooks/useThemeColor';
-import { withSentry } from '@/src/providers/SentryProvider';
+
+// import { withSentry } from '@/src/providers/SentryProvider';
 
 function RootLayout() {
   const backgroundColor = useThemeColor({}, 'background');
@@ -23,6 +24,7 @@ function RootLayout() {
             headerTransparent: true,
             title: '',
           }}
+          initialRouteName={'myList'}
         >
           <Stack.Screen name="index" options={{ headerShown: false }} />
 
@@ -31,7 +33,7 @@ function RootLayout() {
           <Stack.Screen name="auth/login" />
 
           {/* My List Screens */}
-          <Stack.Screen name="myList/myList" />
+          <Stack.Screen name="myList" options={{ headerShown: false }} />
 
           {/* Main Screens */}
           <Stack.Screen name="main/homepage" options={{ headerShown: false }} />
@@ -41,7 +43,8 @@ function RootLayout() {
   );
 }
 
-export default withSentry(RootLayout);
+export default RootLayout;
+// export default withSentry(RootLayout);
 
 const styles = StyleSheet.create({
   container: {
