@@ -1,19 +1,15 @@
 import React from 'react';
-import { I18nManager, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
-import { Welcome } from '@/components/Welcome/Welcome';
+import { ProductDetails } from '@/src/components/List/NewList/ProductDetails';
 import { useThemeColor } from '@/src/hooks/useThemeColor';
 
-I18nManager.forceRTL(true);
-I18nManager.allowRTL(true);
-
-export default function Index() {
+export default function ProductDetailsScreen() {
   const backgroundColor = useThemeColor({}, 'background');
 
   return (
     <SafeAreaView style={[styles.container, { backgroundColor }]}>
-      <Welcome />
+      <ProductDetails />
     </SafeAreaView>
   );
 }
@@ -21,5 +17,6 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    padding: 15,
   },
 });

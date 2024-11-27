@@ -7,4 +7,11 @@ export enum Routes {
 
   // Main screens
   Homepage = '/main/homepage',
+
+  // List screens
+  MyList = '/myList',
+  NewList = '/myList/newList',
+  Subcategory = '/myList/subcategory',
+  Products = '/myList/products',
+  ProductDetails = '/myList/product-details',
 }

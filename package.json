@@ -3,11 +3,11 @@
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
-    "start": "watchman watch-del-all && expo start",
+    "start": "watchman watch-del-all && expo start -c",
     "reset-project": "node ./scripts/reset-project.js",
-    "android": "watchman watch-del-all && expo start --android",
-    "ios": "watchman watch-del-all && expo start --ios",
-    "web": "watchman watch-del-all && expo start --web",
+    "android": "watchman watch-del-all && expo start -c --android",
+    "ios": "watchman watch-del-all && expo start -c --ios",
+    "web": "watchman watch-del-all && expo start -c --web",
     "test": "jest --watchAll",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
     "format": "prettier --write './src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
